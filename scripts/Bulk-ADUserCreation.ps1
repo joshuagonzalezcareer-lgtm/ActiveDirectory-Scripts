@@ -16,6 +16,8 @@ foreach ($Users in $Users) {
 
  New-ADUser `
    -Name "$($User.FirstName) $($User.LastName)" `
+   -GivenName $User.FirstName`
+   -Surname $User.LastName`
    -SamAccountName $login_name`
    -Department $User.Department`
    -Title $User.Title`
