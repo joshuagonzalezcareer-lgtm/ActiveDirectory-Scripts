@@ -15,12 +15,16 @@ foreach ($Users in $Users) {
  }
 
  New-ADUser `
-   - Name "$User.FirstName $User.Lastname" `
-   - SamAccountName $login_name`
-   - Department $User.Department`
-   - Title $User.Title`
+   -Name "$($User.FirstName) $($User.LastName)" `
+   -SamAccountName $login_name`
+   -Department $User.Department`
+   -Title $User.Title`
    # This would be if it had a password:
-   # AccountPassword (convertto-securestring $Password -AsPlainText -Force) -ChangePasswordAtLogon $False
+   # -AccountPassword (convertto-securestring $Password -AsPlainText -Force) -ChangePasswordAtLogon $False
+   # -ChangePasswordAtLogon $true
+   # -Enabled $true
+
+ Write-Host "Created $login_name"
 
 }
 
